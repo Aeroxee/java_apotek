@@ -4,6 +4,9 @@
  */
 package com.fajhri.apotek;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -167,21 +170,25 @@ public class Register extends javax.swing.JFrame {
      * This method is use to register a user
      */
     private void btnDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaftarActionPerformed
-        // TODO add your handling code here:
-        // JOptionPane.showMessageDialog(null, "Berhasil mendaftarkan akun.");
-        String namaLengkap, username, password1, password2;
-        namaLengkap = inputNamaLengkap.getText();
-        username = inputUsername.getText();
-        password1 = new String(inputPassword1.getPassword());
-        password2 = new String(inputPassword2.getPassword());
-        
-        if (!password2.equals(password1)) {
-            JOptionPane.showMessageDialog(null, "Mohon massukkan kata sandi yang sama.");
+        try {
+            String namaLengkap, username, password1, password2;
+            namaLengkap = inputNamaLengkap.getText();
+            username = inputUsername.getText();
+            password1 = new String(inputPassword1.getPassword());
+            password2 = new String(inputPassword2.getPassword());
+            if (!password2.equals(password1)) {
+                JOptionPane.showMessageDialog(null, "Mohon massukkan kata sandi yang sama.");
+            }
+            int res = db.registerNewUser(namaLengkap, username, password2);
+            if (res == 1) {
+                JOptionPane.showMessageDialog(null, "Berhasil mendaftarkan akun akun, silahkan login sekarang.");
+                this.dispose();
+                new Login().setVisible(true);
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Ada suatu kesalahan ketika mendaftarkan akun.");
         }
-        
-        db.registerNewUser(namaLengkap, username, password2);
-        
-        JOptionPane.showMessageDialog(null, "Berhasil mendaftarkan akun akun, silahkan login sekarang.");
     }//GEN-LAST:event_btnDaftarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -16,25 +16,30 @@ import javax.swing.WindowConstants;
  * @author fajhri
  */
 public class TambahTransaksi extends javax.swing.JFrame {
-
     /**
      * Creates new form tambahTransaksi
      * @param kObat
+     * @param harga
+     * @param nmObat
      * @param fullName
      * @param username
      * @param uID
      */
-    public TambahTransaksi(String kObat, String fullName, String username, Integer uID) {
+    public TambahTransaksi(String kObat, String harga, String nmObat, String fullName, String username, Integer uID) {
         kodeObat = kObat;
         userFullName = fullName;
         userUsername = username;
         userID = uID;
+        hargaObat = harga;
+        namaObat = nmObat;
         
         db = new DB();
         initComponents();
         
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setTitle("Konfirmasi Transaksi");
+        lblHargaObat.setText(hargaObat);
+        lblNamaObat.setText(namaObat);
         this.setLocationRelativeTo(null);
     }
 
@@ -55,6 +60,10 @@ public class TambahTransaksi extends javax.swing.JFrame {
         btnBatal = new javax.swing.JButton();
         inputTotalBarang = new javax.swing.JTextField();
         inputTotalBayar = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        lblNamaObat = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        lblHargaObat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,47 +94,73 @@ public class TambahTransaksi extends javax.swing.JFrame {
 
         inputTotalBayar.setText("0");
 
+        jLabel4.setText("Obat yang dipilih:");
+
+        lblNamaObat.setText("jLabel5");
+
+        jLabel6.setText("Harga Obat:");
+
+        lblHargaObat.setText("jLabel7");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(106, 106, 106))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSimpan)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBatal))
-                            .addComponent(inputTotalBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputTotalBayar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inputTotalBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(inputTotalBayar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnSimpan)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnBatal))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNamaObat)
+                                    .addComponent(lblHargaObat))))
                         .addGap(75, 75, 75))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(21, 21, 21)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblNamaObat))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(lblHargaObat))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputTotalBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(inputTotalBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(inputTotalBayar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpan)
                     .addComponent(btnBatal))
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,6 +229,8 @@ public class TambahTransaksi extends javax.swing.JFrame {
     private final String kodeObat;
     private final String userFullName;
     private final String userUsername;
+    private final String namaObat;
+    private final String hargaObat;
     private final Integer userID;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBatal;
@@ -203,6 +240,10 @@ public class TambahTransaksi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblHargaObat;
+    private javax.swing.JLabel lblNamaObat;
     // End of variables declaration//GEN-END:variables
 }

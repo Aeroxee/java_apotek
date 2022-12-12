@@ -135,15 +135,19 @@ public class Obat extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String kodeObat;
+        String namaObat;
+        String hargaObat;
         
         Integer row = tabelObat.getSelectedRow();
         
         kodeObat = tabelObat.getValueAt(row, 0).toString();
+        namaObat = tabelObat.getValueAt(row, 1).toString();
+        hargaObat = tabelObat.getValueAt(row, 2).toString();
         
         Integer confirm = JOptionPane.showConfirmDialog(this, "Apakah yakin untuk membeli obat " + tabelObat.getValueAt(row, 1));
         
         if (confirm == 0) {
-            TambahTransaksi tt = new TambahTransaksi(kodeObat, userFullName, userUsername, userID);
+            TambahTransaksi tt = new TambahTransaksi(kodeObat, hargaObat, namaObat, userFullName, userUsername, userID);
             tt.setVisible(true);
         }
     }//GEN-LAST:event_tabelObatMouseClicked

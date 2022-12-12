@@ -54,26 +54,41 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="88" max="32767" attributes="0"/>
+                  <EmptySpace pref="98" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="btnSimpan" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnBatal" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="inputTotalBarang" min="-2" pref="184" max="-2" attributes="0"/>
+                                      <Component id="inputTotalBayar" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnSimpan" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="btnBatal" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <Component id="inputTotalBarang" min="-2" pref="184" max="-2" attributes="0"/>
-                              <Component id="inputTotalBayar" min="-2" pref="184" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblNamaObat" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblHargaObat" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       </Group>
@@ -85,22 +100,32 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblNamaObat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblHargaObat" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="inputTotalBarang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="inputTotalBayar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="inputTotalBayar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnSimpan" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnBatal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="220" max="32767" attributes="0"/>
+                  <EmptySpace pref="166" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -148,6 +173,26 @@
         <Component class="javax.swing.JTextField" name="inputTotalBayar">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Obat yang dipilih:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNamaObat">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Harga Obat:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblHargaObat">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel7"/>
           </Properties>
         </Component>
       </SubComponents>

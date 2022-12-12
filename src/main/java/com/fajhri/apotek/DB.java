@@ -25,8 +25,8 @@ public class DB {
     
     public DB() {
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mariadb://localhost/apotek", "root", "root");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/java_apotek", "root", "root");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,24 +41,21 @@ public class DB {
      * @param password
      * @return result of register user.
      */
-    public ResultSet registerNewUser(String namaLengkap, String username, String password) {
-        try {
+    public int registerNewUser(String namaLengkap, String username, String password) throws SQLException {
             String sql = "INSERT INTO pelanggan (nama_lengkap, username, password) VALUES (?, ?, ?)";
             
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, namaLengkap);
             pstmt.setString(2, username);
             pstmt.setString(3, password);
-            result = pstmt.executeQuery();
-        } catch (SQLException ex) {
-            Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
+            int rest = pstmt.executeUpdate();
+            return rest;
     }
     
     /**
      * Get User by passing username
      * @param username
+     * @return 
      */
     public ResultSet getUserByUsername(String username) {
         try {
